@@ -7,7 +7,7 @@
 
 #define SDA 18
 #define SCL 19
-#define LEDS_COUNT 8
+#define LEDS_COUNT 1
 #define LEDS_PIN 2
 #define CHANNEL 0
 
@@ -17,6 +17,7 @@ const char *password_Router = "";
 //Freenove_ESP32_WS2812 strip = Freenove_ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNEL, TYPE_GRB);
 Adafruit_NeoPixel strip(LEDS_COUNT, LEDS_PIN, NEO_GRB + NEO_KHZ800);
 String address = "";
+String address2 = "";
 
 char keys[4][4] = {
   {'1', '2', '3', 'A'},
@@ -56,6 +57,10 @@ void loop() {
       submitRequest();
       displaying = "";
     }
+    else if (keyPressed == '*') {
+      listenMode();
+      displaying = "";
+    }
     else if (displaying.length() > 0 && keyPressed == 'D') {
       displaying.remove(displaying.length() - 1);
       lcd.clear();
@@ -84,6 +89,37 @@ void submitRequest() {
 
 }
 
+void listenMode() {
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Listening...");
+  while (true) {
+    char keyPressed = myKeypad.getKey();
+    if (keyPressed) {
+      Serial.println(keyPressed);
+      if (keyPressed == '*') {
+        lcd.clear();
+        break;
+      }
+    }
+    HTTPClient http;
+    Serial.print("[HTTP] begin...\n");
+    http.begin(address2); //HTTP
+    Serial.print("[HTTP] GET...\n"); // start connection and send HTTP header
+    int httpCode = http.GET();
+    String res = http.getString();
+    if(httpCode > 0) {
+      if (!res.equals("stop")) {
+        displayLED(res);
+        break;
+      }
+    }
+    else {
+      Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+    }
+  delay(1000);
+  }
+}
 
 void displayLED(String s) {
   Serial.println("Displaying");
@@ -98,11 +134,14 @@ void displayLED(String s) {
   int r = token1.toInt();
   int g = token2.toInt();
   int b = token3.toInt();
+  Serial.println(r);
+  Serial.println(g);
+  Serial.println(b);
   lcd.setCursor(0, 0);
   lcd.clear();
   lcd.print(s);
   for (int i = 0; i < LEDS_COUNT; i++) {
-    strip.setPixelColor(i, r, g, b, 50);
+    strip.setPixelColor(i, r, g, b);
   }
   strip.show();
 
