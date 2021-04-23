@@ -22,8 +22,9 @@ Adafruit_NeoPixel strip(LEDS_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 const char *ssid_Router     = ""; // Wifi ID
 const char *password_Router = ""; // Wifi password
-String address2= ""; // Call to /status endpoint
-String address= ""; // Call to /colors?values= endpoint
+
+String address = "/colors?values="; // Put full URL for server code
+String address2 = "/status"; // Put full URL for server code
 
 char keys[4][4] = {
   {'1', '2', '3', 'A'},
