@@ -8,6 +8,10 @@ The project structure is as follows:
 * `server` contains all code needed to deploy the Flask server
 * `visuals` contains the Processing script
 
+Below is a diagram of how the ESP32s communicate through the server
+<br>
+ <img src="https://github.com/mwinitch/CommunicatingESP32s/blob/master/imgs/SystemsDiagram.png" width="500">
+ <br>
 
 ## The Wiring and the Hardware
 We used three pieces of hardware: the 4X4 Matrix Keypad, the Neopixel LED module, and the LCD1602 Display Module.
