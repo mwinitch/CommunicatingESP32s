@@ -10,7 +10,7 @@ The project structure is as follows:
 
 Below is a diagram of how the ESP32s communicate through the server
 <br>
- <img src="https://github.com/mwinitch/CommunicatingESP32s/blob/master/imgs/SystemsDiagram.png" width="500">
+ <img src="https://github.com/mwinitch/CommunicatingESP32s/blob/master/imgs/SystemsDiagram.png" width="1000">
  <br>
 
 ## The Wiring and the Hardware
