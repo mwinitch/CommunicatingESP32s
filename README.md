@@ -24,7 +24,7 @@ The numbers and letters may not allign perfectly with every module even if you o
 
 The LCD1602 Display Module was wired similar to this diagram: 
 <br>
- <img src="https://github.com/mwinitch/CommunicatingESP32s/blob/master/imgs/lcd.png" width="500">
+ <img src="https://github.com/mwinitch/CommunicatingESP32s/blob/master/imgs/lcd.png" width="700">
  <br>
 
 However, instead of using GPIO pinds 14 and 13, we used 19 and 18 respectively so as not to interfere with the keypad. In order to use the module with the Arduino IDE, you had to install the LiquidCrystal I2C library.
