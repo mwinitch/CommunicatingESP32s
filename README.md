@@ -1,6 +1,6 @@
 # Communicating ESP32s
 
-This project allows two ESP32 microcontrollers to communicate over a Flask web server. Each ESP32 uses a keypad to communicate a three numbers which are used as RGB values for either setting colors for LEDs or the background color for a screen monitor. Here is a [video](https://www.youtube.com/watch?v=a1yPacIG4h4&ab_channel=ChiannaLiCohen) of the project in action. 
+This project allows two ESP32 microcontrollers to communicate over a Flask web server. Each ESP32 uses a keypad to message three numbers which are used as RGB values for either setting colors for LEDs, or the background color for a screen monitor. Here is a [video](https://www.youtube.com/watch?v=a1yPacIG4h4&ab_channel=ChiannaLiCohen) of the project in action. 
 
 The project structure is as follows:
 * `message_screen` contains the Arduino file that changes the background color of a monitor
