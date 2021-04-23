@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Embedded Systems</title>
+</head>
+<body>
+    <h1>This application is for creative embedded systems.</h1>
+    <p>Using the route /status to see the return status. The form below takes an
+        input of three numbers seperated by commas. Below are some examples:
+        <br>
+        123,189,200
+        <br>
+        45,203,99
+        <br>
+        The numbers represent R,G,B values and the returned numbers will be in the 
+        range from 0 - 255, also seperated by commas.
+    </p>
+    <a href="/status">Status</a>
+    <form action="/submit" method="POST">
+        <label for="fname">Value:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="123456789">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
